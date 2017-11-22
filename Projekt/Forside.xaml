@@ -1,0 +1,20 @@
+﻿<Page
+    NavigationCacheMode="Enabled"
+    x:Class="Projekt.Forside"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Projekt"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock HorizontalAlignment="Left" Margin="534,219,0,0" TextWrapping="Wrap" Text="Hovedmenu" VerticalAlignment="Top" Height="58" Width="852" TextAlignment="Center" FontSize="48"/>
+
+        <Button Content="Se ordrer" HorizontalAlignment="Left" Margin="534,318,0,0" VerticalAlignment="Top" Height="168" Width="420" FontSize="28" Background="#19000000" Click="ButtonBase_OnClick"/>
+        <Button x:Name="BTN_Opretordre" Content="Opret ordre" HorizontalAlignment="Left" Margin="966,318,0,0" VerticalAlignment="Top" Height="168" Width="420" FontSize="28" Background="#19000000" Click="BTN_Opretordre_Click"/>
+        <Button Content="Arkiv" HorizontalAlignment="Left" Margin="534,498,0,0" VerticalAlignment="Top" Height="168" Width="420" FontSize="28" Background="#19000000"/>
+        <Button x:Name="BTN_Logud" Content="Log Ud" HorizontalAlignment="Left" Margin="966,498,0,0" VerticalAlignment="Top" Height="168" Width="420" Background="#CCE53935" FontSize="28" Click="BTN_Logud_Click"/>
+
+    </Grid>
+</Page>

@@ -1,0 +1,46 @@
+﻿<Page
+    NavigationCacheMode="Enabled"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Projekt"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    x:Class="Projekt.OpretOrdre"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <local:OrdreViewModel/>
+    </Page.DataContext>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView x:Name="LWOrdrer" HorizontalAlignment="Left" Height="174" VerticalAlignment="Top" Width="1920" ItemsSource="{Binding OrdrerCollection}"/>
+        <ComboBox x:Name="CBMedie" HorizontalAlignment="Left" Margin="678,187,0,0" VerticalAlignment="Top" Height="59" Width="313" Background="#FFEEEEEE" BorderBrush="#26000000" PlaceholderText="Medie" ItemsSource="{Binding MedieCollection}" SelectedItem="{Binding SelectedMedie, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        </ComboBox>
+        <ComboBox x:Name="CBFolie" HorizontalAlignment="Left" Margin="678,259,0,0" VerticalAlignment="Top" Height="59" Width="313" Background="#FFEEEEEE" BorderBrush="#26000000" PlaceholderText="Folie" ItemsSource="{Binding FolieCollection}" SelectedItem="{Binding SelectedFolie, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        </ComboBox>
+        <TextBox x:Name="TBFarve" HorizontalAlignment="Left" Margin="678,335,0,0" TextWrapping="Wrap" Text="{Binding Farve, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="59" Width="313" Background="#FFEEEEEE" BorderBrush="#26000000" PlaceholderText="Farve"/>
+        <ComboBox x:Name="CBwe" HorizontalAlignment="Left" Margin="678,411,0,0" VerticalAlignment="Top" Height="59" Width="313" Background="#FFEEEEEE" BorderBrush="#26000000">
+            <ComboBoxItem Content="SUV"/>
+            <ComboBoxItem Content="Solv"/>
+        </ComboBox>
+        <TextBox x:Name="TBLængde" HorizontalAlignment="Left" Margin="678,488,0,0" TextWrapping="Wrap" Text="{Binding Længde, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="59" Width="146" Background="#FFEEEEEE" BorderBrush="#26000000" PlaceholderText="Længde mm"/>
+        <TextBox x:Name="TBBredde" HorizontalAlignment="Left" Margin="845,488,0,0" TextWrapping="Wrap" Text="{Binding Bredde, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="59" Width="146" Background="#FFEEEEEE" BorderBrush="#26000000" PlaceholderText="Bredde mm"/>
+        <TextBox x:Name="TBAntal" HorizontalAlignment="Left" Margin="678,568,0,0" TextWrapping="Wrap" Text="{Binding Antal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="59" Width="146" Background="#FFEEEEEE" BorderBrush="#26000000" PlaceholderText="Antal"/>
+        <CheckBox x:Name="CBLam" Content="Lam." HorizontalAlignment="Left" Margin="1087,200,0,0" VerticalAlignment="Top" Height="9" Width="114" FontSize="20" IsChecked="{Binding Laminering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox x:Name="CBFragt" Content="Fragt" HorizontalAlignment="Left" Margin="1087,274,0,0" VerticalAlignment="Top" Height="9" Width="114" FontSize="20" IsChecked="{Binding Fragt, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox x:Name="CBoptil10" Content="Op til 10%" HorizontalAlignment="Left" Margin="1087,346,0,0" VerticalAlignment="Top" Height="9" Width="155" FontSize="20" IsChecked="{Binding OpTil10, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox x:Name="CBMontering" Content="Montering" HorizontalAlignment="Left" Margin="1087,420,0,0" VerticalAlignment="Top" Height="9" Width="129" FontSize="20" IsChecked="{Binding Montering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox x:Name="CBAfhentning" Content="Afhentes" HorizontalAlignment="Left" Margin="1087,493,0,0" VerticalAlignment="Top" Height="9" Width="114" FontSize="20" IsChecked="{Binding Afhentes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="TBKommentar" HorizontalAlignment="Left" Margin="678,650,0,0" TextWrapping="Wrap" Text="{Binding Kommentar, Mode=TwoWay}" VerticalAlignment="Top" Height="139" Width="564" Background="#FFEEEEEE" BorderBrush="#26000000" PlaceholderText="Kommentar"/>
+        <Button x:Name="BTN_Tilbage" Content="Tilbage" HorizontalAlignment="Left" Margin="678,799,0,0" VerticalAlignment="Top" Width="173" Height="40" Background="#CFD32F2F" FontFamily="Arial" BorderBrush="#DB970202" Click="BTN_Tilbage_OnClick"/>
+        <Button x:Name="BTN_Videre" Content="Videre" HorizontalAlignment="Left" Margin="1069,799,0,0" VerticalAlignment="Top" Width="173" Height="40" Background="#FF00E676" FontFamily="Arial" BorderBrush="#7F00C853" Click="BTN_Videre_OnClick">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:CallMethodAction TargetObject="{Binding Mode=OneWay}" MethodName="OpretOdre"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </Button>
+        <StackPanel HorizontalAlignment="Left" Height="195" Margin="0,885,0,0" VerticalAlignment="Top" Width="1920" ChildrenTransitions="{Binding OrdrerCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+    </Grid>
+</Page>
